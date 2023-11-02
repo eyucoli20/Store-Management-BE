@@ -1,0 +1,51 @@
+# Set the name of the Spring Boot application
+spring:
+  application:
+    name: STORE-MANAGEMENT
+
+  # Set the configuration for connecting to the PostgreSQL database
+#  datasource:
+  #    url: jdbc:postgresql://localhost:5432/store_management
+  #    username: postgres
+  #    password: 1313
+  #
+  datasource:
+    url: jdbc:postgresql://dpg-ckp49ioujous738sam10-a.oregon-postgres.render.com:5432/store_management
+    username: store_management_user
+    password: xilL5aqxoSpjNGa9A3Lrac71JHcfPZuj
+
+  # Set the configuration for Hibernate, the ORM framework used by Spring Data JPA
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update  # Set the strategy for Hibernate to create/update the database schema. Hibernate ddl auto (create, create-drop, validate, update)
+    show-sql: true
+
+  # Set the configuration for sending emails
+  mail:
+    host: smtp.gmail.com # SMTP server host
+    port: 587 # SMTP server port
+    username: eyucoli20@gmail.com # Email account username
+    password: lyzgvthzkjcavyvg # Email account password
+    properties:
+      mail:
+        smtp:
+          auth: true # Enable SMTP authentication
+          starttls:
+            enable: true # Enable STARTTLS encryption for the SMTP connection
+
+# Set the port number for the web server
+server:
+  port: 9191
+
+# Set the conditional property for seeding the database
+# NOTE: Set it to true only if you are starting this app for the first time.
+database:
+  seed: false
+
+# Secret key for jwt
+JWT_SECRET_KEY:
+  AB(G+KbPeShVkYp3s6v9y$B&E)H@McQf
+
